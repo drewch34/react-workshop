@@ -3,7 +3,7 @@ import { wrapEvent } from '../../utils'
 
 const DisclosureContext = React.createContext()
 
-export function Disclosure({ children, onChange, defaultOpen = false, ...props }) {
+export function Disclosure({ onChange, children, defaultOpen = false }) {
   const [isOpen, setIsOpen] = React.useState(defaultOpen)
   const id = React.useId()
   const panelId = `panel-${id}`
@@ -17,7 +17,11 @@ export function Disclosure({ children, onChange, defaultOpen = false, ...props }
     },
   }
 
-  return <DisclosureContext.Provider children={children} value={context} />
+  return (
+    <DisclosureContext.Provider value={context}>
+      {typeof children === 'function' ? children(isOpen) : children}
+    </DisclosureContext.Provider>
+  )
 }
 
 export const DisclosureButton = React.forwardRef(

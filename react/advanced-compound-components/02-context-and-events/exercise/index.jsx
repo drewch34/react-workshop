@@ -1,10 +1,8 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom/client'
-import { Disclosure, DisclosureButton, DisclosurePanel } from './Disclosure'
+import { Disclosure, DisclosureButton, DisclosurePanel } from './Disclosure.final'
+import { FaAngleRight, FaAngleDown } from 'react-icons/fa'
 import './styles.scss'
-
-// Incase you want to test your onChange with icons
-// import { FaAngleRight, FaAngleDown } from 'react-icons/fa'
 
 function App() {
   return (

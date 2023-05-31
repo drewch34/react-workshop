@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom/client'
-import { Disclosure, DisclosureButton, DisclosurePanel } from './Disclosure'
+import { Disclosure, DisclosureButton, DisclosurePanel } from './Disclosure.final'
 import './styles.scss'
 
 // Incase you want to test your onChange with icons

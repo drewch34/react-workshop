@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-let queueRenders = []
+let queueRenders = [] //could be const array - can still push to it
 
 function Tweet({ id, options = {} }) {
   const tweetRef = React.useRef()
@@ -16,7 +16,7 @@ function Tweet({ id, options = {} }) {
         script.setAttribute('src', '//platform.twitter.com/widgets.js')
         document.body.appendChild(script)
         script.onload = () => {
-          queueRenders.forEach((cb) => cb())
+          queueRenders.forEach((cb) => cb()) //callback
           queueRenders = []
         }
       }
@@ -30,7 +30,7 @@ function Tweet({ id, options = {} }) {
     // the cleanup runs, this is their recommended approach
     const node = tweetRef.current
     return () => {
-      node.innerHTML = ''
+      node.innerHTML = '' //emptying the div to not repeat light + dark mode
     }
   }, [id, options])
 

@@ -110,3 +110,7 @@ export function BrowseCourseLessons() {
     </>
   )
 }
+
+
+
+//useMemo to create stable versions of arrays/objects (checking memory place)

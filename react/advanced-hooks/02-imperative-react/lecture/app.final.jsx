@@ -3,12 +3,15 @@ import { createPortal } from 'react-dom'
 import { position } from './utils'
 import './styles.scss'
 
+//createPortal -> different 'root' div; not react native
+
 const Portal = ({ children }) => {
-  const portalNode = React.useRef(null)
+  const portalNode = React.useRef(null) //have to use 'React' this way because of the way imported
   const [_, forceUpdate] = React.useState()
 
   React.useLayoutEffect(() => {
-    portalNode.current = document.createElement('portal')
+    portalNode.current = document.createElement('portal') 
+    //create the different root div as needed instead of going to the index.html file and creating a bunch of them
     document.body.appendChild(portalNode.current)
     forceUpdate({})
     return () => {
@@ -18,7 +21,8 @@ const Portal = ({ children }) => {
     }
   }, [])
 
-  return portalNode.current ? createPortal(children, portalNode.current) : null
+  return portalNode.current ? createPortal(children, portalNode.current) : null 
+  //cleanup to remove 'root' div instead of infinitely creating them
 }
 
 const Popover = ({ children, targetRef, ...props }) => {
@@ -29,12 +33,13 @@ const Popover = ({ children, targetRef, ...props }) => {
   // we need to ensure the popoverRef has been established. It's established
   // later than we might expect because the div it's applied to is the children
   // of Portal which returns null initially (which it must do)
+  
   function initPopoverRef(el) {
     // initPopoverRef will be called numerous times, lets do this work once.
     if (!popoverRef.current) {
       popoverRef.current = el
       if (targetRef.current && popoverRef.current) {
-        const targetRect = targetRef.current.getBoundingClientRect()
+        const targetRect = targetRef.current.getBoundingClientRect() //getBoundingClientRect - shows div height, etc.
         const popoverRect = popoverRef.current.getBoundingClientRect()
         setStyles(position(targetRect, popoverRect))
       }

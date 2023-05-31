@@ -6,7 +6,9 @@ export function App() {
   const [saving, setSaving] = useState(false)
   const [message, setMessage] = useState<string | null>(null)
 
-  const countRef = useRef<number>()
+  const countRef = useRef<number>() 
+  //useRef for current instead of what was saved to database, creating different closure
+  //not supposed to do mutations inside render
   countRef.current = count
 
   useEffect(() => {

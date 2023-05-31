@@ -14,10 +14,10 @@ const Popover = ({ children }) => {
 const Define = ({ children }) => {
   const [open, setOpen] = React.useState(false)
 
-  return (
+  return ( //creates div inside p tag
     <>
       <button onClick={() => setOpen(!open)}>{children}</button>
-      {open && <Popover>Hooks are a way to compose behavior into components</Popover>}
+      {open && <Popover>Hooks are a way to compose behavior into components</Popover>} 
     </>
   )
 }

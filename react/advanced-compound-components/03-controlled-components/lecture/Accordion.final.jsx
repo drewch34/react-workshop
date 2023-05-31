@@ -16,7 +16,7 @@ export const Accordion = React.forwardRef(
     const accordionId = React.useId(id)
 
     const isControlled = controlledIndex != null
-    const { current: startsControlled } = React.useRef(isControlled)
+    const { current: startsControlled } = React.useRef(isControlled) //useRef looks at first instance
     if (isControlled !== startsControlled) {
       console.warn('Cannot change from controlled to uncontrolled or vice versa.')
     }

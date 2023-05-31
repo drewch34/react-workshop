@@ -8,11 +8,11 @@ export function App() {
   useEffect(() => {
     if (active) {
       const id = setInterval(() => {
-        setSeconds((seconds) => {
-          return seconds + 1
+        setSeconds((seconds) => { //<- current state  /set state by a function
+          return seconds + 1 // <- return new state
         })
       }, 1000)
-      return () => clearInterval(id)
+      return () => clearInterval(id) //cleanup from memory leak if active
     }
   }, [active])
 

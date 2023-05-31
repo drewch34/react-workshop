@@ -13,6 +13,8 @@ const AccordionContext = React.createContext()
 
 /**
  * Accordion
+ * 
+ * fixing the issue of mapping through components, gives index number from bottom up
  */
 
 export const Accordion = React.forwardRef(

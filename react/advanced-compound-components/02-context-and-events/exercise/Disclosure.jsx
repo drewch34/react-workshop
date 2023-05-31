@@ -5,6 +5,7 @@ export function Disclosure({ children, defaultOpen = false, ...props }) {
   const [isOpen, setIsOpen] = React.useState(defaultOpen)
   const id = React.useId()
   const panelId = `panel-${id}`
+  const context = 
 
   children = React.Children.map(children, (child) => {
     return React.cloneElement(child, {

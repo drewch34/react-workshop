@@ -8,7 +8,7 @@ function App() {
   const [open, setOpen] = React.useState(false)
 
   return (
-    <Disclosure onChange={() => setOpen(!open)}>
+    <Disclosure onChange={() => setOpen(!open)} open={open}>
       <DisclosureButton>
         {open ? <FaAngleDown /> : <FaAngleRight />}
         <span>Click Me</span>
